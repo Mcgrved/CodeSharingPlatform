@@ -53,7 +53,6 @@ public class CodeService {
         if (code.isTimeRestricted()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS");
             if (Objects.equals(code.getOriginalTime(), null)) {
-                Logger.getGlobal().info("Once");
                 code.setOriginalTime(code.getTime());
             }
             code.setTime(code.getOriginalTime()  - Duration.between(

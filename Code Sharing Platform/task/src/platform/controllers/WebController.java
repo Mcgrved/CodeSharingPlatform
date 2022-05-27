@@ -27,12 +27,10 @@ public class WebController {
         model.addAttribute("code_list", code);
 
         if (Objects.equals(code, null)) {
-            Logger.getGlobal().info("first 404" );
             return new ResponseEntity<>("getSnippet", HttpStatus.NOT_FOUND);
         }
         if ((code.getViews() < 0 && code.isViewRestricted()) ||
                 (code.getTime() < 0 && code.isTimeRestricted())) {
-            Logger.getGlobal().info("second 404 " + code.getTime() + " " + code.getViews() );
             return new ResponseEntity<>("getSnippet", HttpStatus.NOT_FOUND);
         }
         return "getSnippet";
